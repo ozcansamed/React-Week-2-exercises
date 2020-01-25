@@ -12,7 +12,7 @@ export default function DogGallery() {
     fetch("https://dog.ceo/api/breeds/image/random")
       .then(resp => resp.json())
       .then(data => {
-        setDogPhotos(data.message);
+        setDogPhotos([data.message, ...dogPhotos]);
         setLoading(false);
       })
       .catch(err => {
